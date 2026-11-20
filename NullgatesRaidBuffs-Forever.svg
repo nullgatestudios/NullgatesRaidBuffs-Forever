@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Nullgate's Raid Buffs - Forever: a buff grid of green, yellow and red tiles with a sparkle -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#232d3d"/>
+      <stop offset="1" stop-color="#0f141c"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d27a"/>
+      <stop offset="0.5" stop-color="#c9a54e"/>
+      <stop offset="1" stop-color="#8a6a26"/>
+    </linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8af06a"/>
+      <stop offset="1" stop-color="#2e9a24"/>
+    </linearGradient>
+    <linearGradient id="y" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="1" stop-color="#d49a12"/>
+    </linearGradient>
+    <linearGradient id="r" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff8a7a"/>
+      <stop offset="1" stop-color="#c22a24"/>
+    </linearGradient>
+    <radialGradient id="aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7ad0ff" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#2a6ac2" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <!-- frame -->
+  <rect x="20" y="20" width="472" height="472" rx="64" fill="url(#bg)"/>
+  <rect x="20" y="20" width="472" height="472" rx="64" fill="none" stroke="url(#gold)" stroke-width="16"/>
+  <rect x="44" y="44" width="424" height="424" rx="44" fill="none" stroke="#c9a54e" stroke-opacity="0.35" stroke-width="3"/>
+
+  <circle cx="256" cy="268" r="190" fill="url(#aura)"/>
+
+  <!-- grid board -->
+  <rect x="106" y="126" width="300" height="300" rx="26" fill="#0b1018" opacity="0.6" filter="url(#glow)"/>
+  <rect x="106" y="126" width="300" height="300" rx="26" fill="#1a2230" stroke="#c9a54e" stroke-opacity="0.6" stroke-width="5"/>
+
+  <g stroke="#0b1018" stroke-width="4">
+    <rect x="128" y="148" width="76" height="76" rx="14" fill="url(#g)"/>
+    <rect x="218" y="148" width="76" height="76" rx="14" fill="url(#g)"/>
+    <rect x="308" y="148" width="76" height="76" rx="14" fill="url(#g)"/>
+    <rect x="128" y="238" width="76" height="76" rx="14" fill="url(#g)"/>
+    <rect x="218" y="238" width="76" height="76" rx="14" fill="url(#y)"/>
+    <rect x="308" y="238" width="76" height="76" rx="14" fill="url(#g)"/>
+    <rect x="128" y="328" width="76" height="76" rx="14" fill="url(#g)"/>
+    <rect x="218" y="328" width="76" height="76" rx="14" fill="url(#g)"/>
+    <rect x="308" y="328" width="76" height="76" rx="14" fill="url(#r)"/>
+  </g>
+  <!-- marks -->
+  <g fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M146 186 l14 14 l26 -30"/>
+    <path d="M236 186 l14 14 l26 -30"/>
+    <path d="M326 186 l14 14 l26 -30"/>
+    <path d="M146 276 l14 14 l26 -30"/>
+    <path d="M326 276 l14 14 l26 -30"/>
+    <path d="M146 366 l14 14 l26 -30"/>
+    <path d="M236 366 l14 14 l26 -30"/>
+    <path d="M330 350 l32 32 M362 350 l-32 32"/>
+  </g>
+  <!-- clock on the yellow tile -->
+  <circle cx="256" cy="276" r="20" fill="none" stroke="#ffffff" stroke-width="7"/>
+  <path d="M256 264 V278 H266" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- sparkle -->
+  <path d="M400 88 l10 26 l26 10 l-26 10 l-10 26 l-10 -26 l-26 -10 l26 -10 Z" fill="#cfeaff"/>
+  <circle cx="98" cy="110" r="6" fill="#cfeaff"/>
+  <circle cx="440" cy="420" r="5" fill="#cfeaff" opacity="0.8"/>
+</svg>
