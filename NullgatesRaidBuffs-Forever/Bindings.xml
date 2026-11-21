@@ -1,0 +1,4 @@
+<Bindings>
+    <!-- Secure click binding: casts your buff on the next player who needs it -->
+    <Binding name="CLICK NullgatesRaidBuffsButton:LeftButton" header="NULLGATESRAIDBUFFS"/>
+</Bindings>

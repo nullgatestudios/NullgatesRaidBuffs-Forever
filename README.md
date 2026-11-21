@@ -1,6 +1,6 @@
 # Nullgate's Raid Buffs - Forever
 
-> **Status: planning.** No code yet. See [PLAN.md](PLAN.md).
+> **Status: beta** (1.0.0-beta.1). Looking for testers of every class. See [CHANGELOG.md](CHANGELOG.md).
 
 **Nullgate's Raid Buffs** shows who in your party or raid is missing which buff in **World of Warcraft: Forever**, and gives you one button that casts your own class's buff on the next player who needs it.
 
@@ -56,6 +56,18 @@ Not released yet. Once it is:
 
 - **Nullgate's Addon Config**: one settings hub and profile manager for the whole suite.
 - **Nullgate's Blessings**, **Totems**, **Cooldowns**, **Restock** and more.
+
+---
+
+## Development
+
+| Task | Command |
+| :--- | :--- |
+| Refresh the buff data after a client patch | `python tools/generate_buff_data.py` (reads the latest Forever build from wago.tools) |
+| Run the tests | `lua tests/run.lua`, `lua tests/smoke.lua` and `lua tests/locales.lua` |
+| Build `zips/NullgatesRaidBuffs-Forever-<version>.zip` | `.\package.ps1` (or `.\package.ps1 -Version 1.0.0` to set the version first) |
+
+Publishing a GitHub release uploads that version to CurseForge (`.github/workflows/curseforge.yml`); pushes only run the tests.
 
 ---
 

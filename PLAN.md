@@ -1,6 +1,8 @@
 # Nullgate's Raid Buffs - Forever: Plan
 
-Status: planning, with no code written yet. Planned on 2026-11-20.
+Status: phases 0 to 4 built as 1.0.0-beta.1 on 2026-11-20; the in-game checks wait for testers (`/nbuffs check`). Planned on 2026-11-20.
+
+Built notes: buffs are matched by their spell name in the game's language (any rank counts); the rank cast on a player is the highest you know learned no more than 10 levels above theirs; the group spell is used when 3 (configurable) in one group need it and you carry its reagent.
 
 - **Folder:** `NullgatesRaidBuffs-Forever`
 - **Saved variables:** `NullgatesRaidBuffsDB` (per character)
