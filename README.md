@@ -4,7 +4,7 @@
 
 **Nullgate's Raid Buffs** shows who in your party or raid is missing which buff in **World of Warcraft: Forever**, and gives you one button that casts your own class's buff on the next player who needs it.
 
-Every duration comes from the Forever client: Fortitude, Arcane Intellect, Mark of the Wild and Divine Spirit last an hour there, and Battle Shout lasts 3 minutes.
+Every duration comes from the Forever client: Fortitude, Arcane Intellect, Mark of the Wild and Divine Spirit last an hour there.
 
 ---
 

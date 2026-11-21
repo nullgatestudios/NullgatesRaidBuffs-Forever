@@ -11,7 +11,7 @@ No more scanning forty buff bars before the pull, or asking "who still needs For
 - **Buff grid**: players by group against Fortitude, Mark of the Wild, Arcane Intellect, Divine Spirit, Shadow Protection, blessings, Thorns and more. Green is up, yellow is running low, red is missing. Buffs nobody in your group can cast are hidden.
 - **Out of range is not missing**: players too far away to check show greyed out.
 - **Your buff button**: casts your class's buff on the next player missing it, at the highest rank they can receive, or the group version when several players in one group need it.
-- **Accurate durations**: every buff time is read from the Forever client. Fortitude, Arcane Intellect, Mark of the Wild and Divine Spirit last an hour there, and Battle Shout lasts 3 minutes.
+- **Accurate durations**: every buff time is read from the Forever client. Fortitude, Arcane Intellect, Mark of the Wild and Divine Spirit last an hour there.
 - **Running-low warnings** scaled to each buff: 5 minutes before an hour-long buff ends, 1 minute before a ten-minute buff ends.
 - **Ready check view** that pops up with only what's missing.
 - **Report button** that posts missing buffs to group chat, limited so it can't spam.
