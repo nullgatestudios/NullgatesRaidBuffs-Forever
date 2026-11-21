@@ -20,13 +20,13 @@ Buttons can't change their target in combat, so mid-fight the button keeps its l
 
 ## Features
 
-- **Buff grid** for Fortitude, Mark of the Wild, Arcane Intellect, Divine Spirit, Shadow Protection, blessings, Thorns and more. Buffs nobody in the group can cast are hidden.
+- **Buff grid** for Fortitude, Mark of the Wild, Arcane Intellect, Divine Spirit, Shadow Protection, blessings and Thorns. Buffs nobody in the group can cast are hidden.
 - **Your buff button** with single and group versions, at the highest rank each player can receive.
 - **Running-low warnings** scaled to each buff: 5 minutes for one-hour buffs, 1 minute for ten-minute buffs.
 - **Ready check view** that shows only what's missing.
 - **Report button** that posts missing buffs to group chat, rate-limited.
-- **Consumable check** for flasks, elixirs and food buffs, off by default.
-- **Self-buff reminders** such as Inner Fire, Mage Armor, Demon Armor and Lightning Shield.
+- **Consumable check** for flasks and Well Fed, off by default.
+- **Self-buff reminders** for Inner Fire, the mage and warlock armors, and Lightning and Water Shield.
 - **Settings** in its own window or inside Nullgate's Addon Config.
 
 ---
