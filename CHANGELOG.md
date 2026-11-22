@@ -2,6 +2,14 @@
 
 All notable changes to Nullgate's Raid Buffs - Forever.
 
+## [1.0.0-beta.2] - 2026-11-21
+
+### Fixed
+
+- No more error when the game hides a group member's range from addons. That player is treated as in range.
+- Buffs the game hides from addons, usually in combat, are skipped instead of causing an error.
+- `/nrb check` shows "secret" for a hidden range instead of failing.
+
 ## [1.0.0-beta.1] - 2026-11-20
 
 First test version, looking for players of every class to try it.

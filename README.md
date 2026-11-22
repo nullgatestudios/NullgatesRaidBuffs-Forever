@@ -1,6 +1,6 @@
 # Nullgate's Raid Buffs - Forever
 
-> **Status: beta** (1.0.0-beta.1). Looking for testers of every class. See [CHANGELOG.md](CHANGELOG.md).
+> **Status: beta** (1.0.0-beta.2). Looking for testers of every class. See [CHANGELOG.md](CHANGELOG.md).
 
 **Nullgate's Raid Buffs** shows who in your party or raid is missing which buff in **World of Warcraft: Forever**, and gives you one button that casts your own class's buff on the next player who needs it.
 
