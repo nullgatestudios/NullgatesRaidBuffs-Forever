@@ -10,6 +10,13 @@ function Scan.SpellName(spellID)
     return GetSpellInfo and (GetSpellInfo(spellID)) or nil
 end
 
+-- Forever can hide aura fields from addons (secret values, usually in combat); those can't be compared.
+local function Secret(...)
+    if not issecretvalue then return false end
+    for i = 1, select("#", ...) do if issecretvalue((select(i, ...))) then return true end end
+    return false
+end
+
 -- Every helpful aura on a unit: [name] = { remaining (nil for no end), duration }.
 function Scan.Auras(unit, now)
     local auras = {}
@@ -24,7 +31,7 @@ function Scan.Auras(unit, now)
             if not n then break end
             name, duration, expires = n, d, e
         end
-        if name then
+        if name and not Secret(name, duration, expires) then
             local remaining = (expires and expires > 0) and (expires - now) or math.huge
             local old = auras[name]
             if not old or remaining > old.remaining then auras[name] = { remaining = remaining, duration = duration or 0 } end
@@ -41,8 +48,10 @@ function Scan.Members()
         local _, class = UnitClass(unit)
         local reachable = UnitIsConnected(unit) and not UnitIsDeadOrGhost(unit)
         if reachable and not UnitIsUnit(unit, "player") then
+            -- Forever can return the range as secret values, which can't be tested: then it's unknown.
             local inRange, checked = UnitInRange(unit)
-            if checked and not inRange then reachable = false end
+            local secret = issecretvalue and (issecretvalue(inRange) or issecretvalue(checked))
+            if not secret and checked and not inRange then reachable = false end
         end
         list[#list + 1] = { unit = unit, name = UnitName(unit), class = class, level = UnitLevel(unit), group = group,
                             reachable = reachable }

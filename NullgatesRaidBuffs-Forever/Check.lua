@@ -56,6 +56,8 @@ function Check.Run()
     Log("your buffs: " .. (#auras > 0 and table.concat(auras, "; ") or "none"))
     for _, m in ipairs(ns.Scan.Members()) do
         local inRange, checked = UnitInRange(m.unit)
+        if issecretvalue and issecretvalue(inRange) then inRange = "secret" end
+        if issecretvalue and issecretvalue(checked) then checked = "secret" end
         Log(string.format("member %s (%s, %s, level %s, group %s): UnitInRange %s/%s, reachable %s", m.unit, tostring(m.name),
             tostring(m.class), tostring(m.level), tostring(m.group), tostring(inRange), tostring(checked), tostring(m.reachable)))
     end
