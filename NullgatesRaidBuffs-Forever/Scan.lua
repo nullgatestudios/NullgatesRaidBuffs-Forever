@@ -10,33 +10,56 @@ function Scan.SpellName(spellID)
     return GetSpellInfo and (GetSpellInfo(spellID)) or nil
 end
 
--- Forever can hide aura fields from addons (secret values, usually in combat); those can't be compared.
-local function Secret(...)
-    if not issecretvalue then return false end
-    for i = 1, select("#", ...) do if issecretvalue((select(i, ...))) then return true end end
-    return false
+-- Forever won't let addons read some auras (secret values, usually in combat): asking for one is an
+-- error, and hidden fields can't be compared. Returns the aura, nil past the last one, or false when
+-- the game is hiding it.
+local function IsSecret(v) return issecretvalue ~= nil and issecretvalue(v) == true end
+local function ReadAura(unit, i)
+    if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
+        local S = C_Secrets
+        if S and S.ShouldUnitAuraIndexBeSecret and S.ShouldUnitAuraIndexBeSecret(unit, i, "HELPFUL") then return false end
+        local ok, a = pcall(C_UnitAuras.GetAuraDataByIndex, unit, i, "HELPFUL")
+        if not ok then return false end
+        if a and (IsSecret(a.name) or IsSecret(a.expirationTime) or IsSecret(a.duration) or IsSecret(a.sourceUnit)
+            or IsSecret(a.spellId)) then return false end
+        return a
+    end
+    local name, _, _, _, duration, expires, caster, _, _, spellId = UnitBuff(unit, i)
+    if not name then return nil end
+    return { name = name, duration = duration, expirationTime = expires, sourceUnit = caster, spellId = spellId }
 end
 
--- Every helpful aura on a unit: [name] = { remaining (nil for no end), duration }.
+-- The last full read of each unit, used while the game hides its auras.
+local lastRead = {} -- [unit] = { name, at, auras }
+
+local function LastRead(unit, now)
+    local last, name, auras = lastRead[unit], UnitName(unit), {}
+    if last and not IsSecret(name) and last.name == name then
+        for buff, a in pairs(last.auras) do
+            local remaining = a.remaining - (now - last.at)
+            if remaining > 0 then auras[buff] = { remaining = remaining, duration = a.duration } end
+        end
+    end
+    return auras
+end
+
+-- Every helpful aura on a unit: [name] = { remaining (math.huge for no end), duration }. While the
+-- game hides the unit's auras, the last full read is used.
 function Scan.Auras(unit, now)
     local auras = {}
     for i = 1, 40 do
-        local name, duration, expires
-        if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
-            local a = C_UnitAuras.GetAuraDataByIndex(unit, i, "HELPFUL")
-            if not a then break end
-            name, duration, expires = a.name, a.duration, a.expirationTime
-        else
-            local n, _, _, _, d, e = UnitBuff(unit, i)
-            if not n then break end
-            name, duration, expires = n, d, e
-        end
-        if name and not Secret(name, duration, expires) then
+        local a = ReadAura(unit, i)
+        if a == nil then break end
+        if a == false then return LastRead(unit, now) end
+        local name, duration, expires = a.name, a.duration, a.expirationTime
+        if name then
             local remaining = (expires and expires > 0) and (expires - now) or math.huge
             local old = auras[name]
             if not old or remaining > old.remaining then auras[name] = { remaining = remaining, duration = duration or 0 } end
         end
     end
+    local name = UnitName(unit)
+    lastRead[unit] = { name = not IsSecret(name) and name or nil, at = now, auras = auras }
     return auras
 end
 

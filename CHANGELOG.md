@@ -2,6 +2,12 @@
 
 All notable changes to Nullgate's Raid Buffs - Forever.
 
+## [1.0.0-beta.3] - 2026-11-21
+
+### Fixed
+
+- No more "Auras cannot be accessed when secret" error. While the game hides a player's buffs from addons, usually in combat, the addon keeps using what it last saw on them, with the timers counting down.
+
 ## [1.0.0-beta.2] - 2026-11-21
 
 ### Fixed
