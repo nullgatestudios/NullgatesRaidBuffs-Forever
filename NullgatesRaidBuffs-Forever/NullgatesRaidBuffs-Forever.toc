@@ -7,6 +7,7 @@
 ## SavedVariablesPerCharacter: NullgatesRaidBuffsDB
 ## OptionalDeps: NullgatesAddonConfig-Forever
 ## X-License: Restricted - Source Available (All Rights Reserved, No Derivatives)
+## X-Curse-Project-ID: 1827046
 ## X-Website: https://github.com/nullgatestudios/NullgatesRaidBuffs-Forever
 
 Locale.lua
