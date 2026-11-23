@@ -2,6 +2,12 @@
 
 All notable changes to Nullgate's Raid Buffs - Forever.
 
+## [1.0.0-beta.4] - 2026-11-23
+
+### Changed
+
+- Up to date with the Forever client 1.60.1.71037, which removed Blessing of Light and Salvation. The paladin blessing column counts Might, Wisdom and Kings and their Greater versions.
+
 ## [1.0.0-beta.3] - 2026-11-21
 
 ### Fixed

@@ -32,7 +32,7 @@ EQ(Family("shadow").single[1][3], 600, "Shadow Protection lasts 10 minutes")
 EQ(Family("shadow").group[1][3], 1200, "Prayer of Shadow Protection lasts 20 minutes")
 EQ(Family("fortitude").reagent, 17028, "Prayer of Fortitude uses Holy Candles")
 EQ(#Family("thorns").group, 0, "Thorns has no group version")
-EQ(#ns.BLESSING_SPELLS >= 8, true, "every blessing name for the blessing column")
+EQ(#ns.BLESSING_SPELLS >= 6, true, "every blessing name for the blessing column (Forever 1.60.1.71037 removed Light and Salvation)")
 EQ(ns.WELL_FED_SPELL > 0 and #ns.FLASK_SPELLS > 0, true, "consumable buffs")
 
 -- --- Columns ----------------------------------------------------------------------------
