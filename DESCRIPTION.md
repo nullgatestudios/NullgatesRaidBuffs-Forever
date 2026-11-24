@@ -42,6 +42,23 @@ The game doesn't allow buttons to change their target during combat. Mid-fight, 
 
 ---
 
+## Supported Languages
+
+All 10 languages the game client runs in:
+
+- English
+- Deutsch (German)
+- Español (Spanish)
+- Français (French)
+- Italiano (Italian)
+- Português do Brasil (Brazilian Portuguese)
+- Русский (Russian)
+- 한국어 (Korean)
+- 简体中文 (Simplified Chinese)
+- 繁體中文 (Traditional Chinese)
+
+The addon uses your game's language automatically; Mexican Spanish clients get Spanish. You can pick another one in the settings. The translations were made with machine assistance, so some wording may not be quite right. Corrections are welcome: send a message here on CurseForge.
+
 ## Installation
 
 1. Download the latest file.
@@ -54,4 +71,3 @@ The game doesn't allow buttons to change their target during combat. Mid-fight, 
 
 - Works for every class, in parties and raids.
 - Buff durations and ranks are read from the Forever client data, not copied from original Classic.
-- Available in 10 languages: English, Deutsch, Español, Français, Italiano, Português (Brasil), Русский, 한국어, 简体中文 and 繁體中文 (every language the game client runs in). The game's language is used automatically, and you can pick another in the settings. The translations were made with machine assistance; corrections are welcome.
