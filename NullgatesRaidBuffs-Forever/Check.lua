@@ -20,8 +20,21 @@ local function Log(text)
         db.check[#db.check + 1] = text
     end
     print("|cff00c0ffNullgate's Raid Buffs check:|r " .. text)
+    if NullgateReport then NullgateReport.Update("raid-buffs") end
 end
 Check.Log = Log
+
+-- Opens the report window every Nullgate addon shares (NullgateReport.lua) with this check's log,
+-- ready to copy and paste into the report form on our website.
+function Check.ShowReport()
+    local L = ns.L
+    return NullgateReport.Show({
+        slug = "raid-buffs", name = "Nullgate's Raid Buffs", addon = "NullgatesRaidBuffs-Forever", command = "/nbuffs check",
+        lines = function() return ns.db and ns.db.check end,
+        title = L["Bug report"], selectAll = L["Select all"], selectLink = L["Select link"],
+        help = L["Press Ctrl+C to copy this report, then paste it into a new report at the link below, with a few words on what happened."],
+    })
+end
 
 local function Exists(path)
     local value = _G
@@ -72,4 +85,5 @@ function Check.Run()
     else
         Log("you know none of the grid's buffs, so there's no buff button")
     end
+    Check.ShowReport()
 end

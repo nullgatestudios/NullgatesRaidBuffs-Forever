@@ -196,6 +196,12 @@ OK(table.concat(keys, ","):find("flask,food", 1, true) ~= nil, "consumable colum
 SlashCmdList.NULLGATESRAIDBUFFS("config")
 OK(NullgatesRaidBuffsOptions and NullgatesRaidBuffsOptions.shown, "/nbuffs config opens the settings")
 SlashCmdList.NULLGATESRAIDBUFFS("check")
+do -- the report window every Nullgate addon shares
+    local w = NullgateReportWindow
+    OK(w and w.shown and w.url == "https://nullgatestudios.com/report?addon=raid-buffs", "check opens the shared report window with this addon's link")
+    OK(w and w.text and w.text:find("Addon: raid-buffs\nNullgate's Raid Buffs - Forever ", 1, true) == 1, "the report starts with the addon's slug and name")
+    OK(w and w.box.text == w.text and w.link.text == w.url, "the report and the link are in the window, ready to copy")
+end
 local log = table.concat(db.check or {}, "\n")
 OK(log:find("C_UnitAuras.GetAuraDataByIndex=yes", 1, true), "check reports which calls exist")
 OK(log:find("fortitude: looks for Power Word: Fortitude / Prayer of Fortitude (3600s)", 1, true), "check names the buffs it looks for")
